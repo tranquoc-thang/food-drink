@@ -1,0 +1,44 @@
+.container {
+  background: url("../../assets/backgroundfood.png") center/cover no-repeat;
+  width: 100%;
+  height: 30rem;
+  color: whitesmoke;
+}
+
+.footer-top {
+  padding-top: 3rem;
+  padding-left: 3rem;
+}
+
+.footer-top .time {
+  padding: 2rem 0;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  display: inline-block;
+}
+
+.footer-top .address {
+  border-bottom: 1px solid gray;
+  padding: 2rem 0;
+  display: block;
+  width: fit-content;
+}
+
+.footer-top .status {
+  width: 30%;
+  padding-top: 2rem;
+}
+
+.footer-bottom {
+  margin: 6rem auto 0;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-bottom span {
+  margin-right: 1.5rem;
+}
+
+.footer-bottom a {
+  color: whitesmoke;
+}
