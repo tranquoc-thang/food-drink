@@ -1,10 +1,14 @@
+<!-- <header *ngIf="url !== '/login' && url !== '/signup'"> -->
 <header>
-  <div class="container">
-    <a href="#" routerLink="/" class="logo"> FOOD & DRINKS RESTAURENT </a>
+  <div class="containers">
+    <a href="#" routerLink="/" class="logo"> FOOD & DRINKS </a>
     <nav>
       <ul>
         <li>
           <a href="#" routerLink="/cart-page">Cart</a>
+          <a href="#" routerLink="/login" *ngIf="!(isLogged$ | async)">Login</a>
+          <a href="#" routerLink="/signup">Signup</a>
+          <a href="#" *ngIf="isLogged$ | async" (click)="doLogout()">Logout</a>
         </li>
       </ul>
     </nav>

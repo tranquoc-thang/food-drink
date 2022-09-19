@@ -73,3 +73,10 @@ li a:hover {
   color: #424242;
   margin-top: 0.2rem;
 }
+
+.name {
+  width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

@@ -13,7 +13,7 @@ a:hover {
   color: white;
 }
 
-.container {
+.containers {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

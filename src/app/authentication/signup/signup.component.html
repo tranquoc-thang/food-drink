@@ -1,0 +1,261 @@
+<!-- Section: Design Block -->
+<section
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  "
+>
+  <!-- Background image -->
+  <div
+    class="p-5 bg-image"
+    style="
+      background: linear-gradient(180deg, #e72929, white);
+      height: 200px;
+      width: 100%;
+    "
+  ></div>
+  <!-- Background image -->
+
+  <div
+    class="card mx-4 mx-md-5 shadow-5-strong"
+    style="
+      margin-bottom: 5rem;
+      margin-top: -100px;
+      background: hsla(0, 0%, 100%, 0.8);
+      backdrop-filter: blur(30px);
+      width: 60%;
+    "
+  >
+    <div class="card-body py-5 px-md-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="fw-bold mb-5 text-center">Sign up now</h2>
+          <form [formGroup]="accountCreateForm">
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <label class="form-label" for="txtFirstName"
+                    >First name</label
+                  >
+
+                  <input
+                    type="text"
+                    id="txtFirstName"
+                    class="form-control"
+                    [ngClass]="{
+                      error:
+                        accountCreateForm.controls['txtFirstName'].errors &&
+                        (accountCreateForm.controls['txtFirstName'].dirty ||
+                          accountCreateForm.controls['txtFirstName'].touched)
+                    }"
+                    formControlName="txtFirstName"
+                  />
+                  <div
+                    *ngIf="
+                      accountCreateForm.controls['txtFirstName'].invalid &&
+                      (accountCreateForm.controls['txtFirstName'].dirty ||
+                        accountCreateForm.controls['txtFirstName'].touched)
+                    "
+                  >
+                    <span
+                      class="validation-message"
+                      *ngIf='accountCreateForm.controls["txtFirstName"].errors?.["required"]'
+                      >[Firstname is required]
+                    </span>
+                    <span
+                      class="validation-message"
+                      *ngIf='accountCreateForm.controls["txtFirstName"].errors?.["maxlength"]'
+                      >[The maximum characters is 32]
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <label class="form-label" for="txtLastName">Last name</label>
+                  <input
+                    type="text"
+                    id="txtLastName"
+                    class="form-control"
+                    formControlName="txtLastName"
+                    [ngClass]="{
+                      error:
+                        accountCreateForm.controls['txtLastName'].errors &&
+                        (accountCreateForm.controls['txtLastName'].dirty ||
+                          accountCreateForm.controls['txtLastName'].touched)
+                    }"
+                  />
+                  <div
+                    *ngIf="
+                      accountCreateForm.controls['txtLastName'].invalid &&
+                      (accountCreateForm.controls['txtLastName'].dirty ||
+                        accountCreateForm.controls['txtLastName'].touched)
+                    "
+                  >
+                    <span
+                      class="validation-message"
+                      *ngIf='accountCreateForm.controls["txtLastName"].errors?.["required"]'
+                      >[Lastname is required]
+                    </span>
+                    <span
+                      class="validation-message"
+                      *ngIf='accountCreateForm.controls["txtLastName"].errors?.["maxlength"]'
+                      >[The maximum characters is 32]
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="txtEmail">Email address</label>
+              <input
+                type="email"
+                id="txtEmail"
+                class="form-control"
+                [ngClass]="{
+                  error:
+                    accountCreateForm.controls['txtEmail'].errors &&
+                    (accountCreateForm.controls['txtEmail'].dirty ||
+                      accountCreateForm.controls['txtEmail'].touched)
+                }"
+                formControlName="txtEmail"
+              />
+              <div
+                *ngIf="
+                  accountCreateForm.controls['txtEmail'].invalid &&
+                  (accountCreateForm.controls['txtEmail'].dirty ||
+                    accountCreateForm.controls['txtEmail'].touched)
+                "
+              >
+                <span
+                  class="validation-message"
+                  *ngIf='accountCreateForm.controls["txtEmail"].errors?.["required"]'
+                  >[Email is required]
+                </span>
+                <span
+                  class="validation-message"
+                  *ngIf='accountCreateForm.controls["txtEmail"].errors?.["pattern"]'
+                  >[The format is incorrect, please enter it again]
+                </span>
+                <span
+                  class="validation-message"
+                  *ngIf='accountCreateForm.controls["txtEmail"].errors?.["maxlength"]'
+                  >[The maximum characters is 50]
+                </span>
+              </div>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="txtPassword">Password</label>
+              <input
+                type="password"
+                id="txtPassword"
+                class="form-control"
+                formControlName="txtPassword"
+                [ngClass]="{
+                  error:
+                    accountCreateForm.controls['txtPassword'].errors &&
+                    (accountCreateForm.controls['txtPassword'].dirty ||
+                      accountCreateForm.controls['txtPassword'].touched)
+                }"
+              />
+              <div
+                *ngIf="
+                  accountCreateForm.controls['txtPassword'].invalid &&
+                  (accountCreateForm.controls['txtPassword'].dirty ||
+                    accountCreateForm.controls['txtPassword'].touched)
+                "
+              >
+                <span
+                  class="validation-message"
+                  *ngIf='accountCreateForm.controls["txtPassword"].errors?.["required"]'
+                  >[Password is required]
+                </span>
+                <span
+                  class="validation-message"
+                  *ngIf='accountCreateForm.controls["txtPassword"].errors?.["maxlength"]'
+                  >[The maximum characters is 32]
+                </span>
+              </div>
+            </div>
+            <!-- Confirm Password input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="txtPasswordConfirm"
+                >Password Confirm</label
+              >
+              <input
+                type="password"
+                id="txtPasswordConfirm"
+                class="form-control"
+                formControlName="txtPasswordConfirm"
+                [ngClass]="{
+                  error:
+                    (accountCreateForm.controls['txtPasswordConfirm'].errors?.['required'] || accountCreateForm.controls['txtPasswordConfirm'].errors?.['checkMatchOther']) &&
+                    (accountCreateForm.controls['txtPasswordConfirm'].dirty ||
+                      accountCreateForm.controls['txtPasswordConfirm'].touched)
+                }"
+              />
+              <div
+                *ngIf="
+                  accountCreateForm.controls['txtPasswordConfirm'].invalid &&
+                  (accountCreateForm.controls['txtPasswordConfirm'].dirty ||
+                    accountCreateForm.controls['txtPasswordConfirm'].touched)
+                "
+              >
+                <span
+                  class="validation-message"
+                  *ngIf='accountCreateForm.controls["txtPasswordConfirm"].errors?.["required"]'
+                  >[Password Confirm is required]
+                </span>
+                <span
+                  class="validation-message"
+                  *ngIf='accountCreateForm.controls["txtPasswordConfirm"].errors?.["checkMatchOther"]'
+                  >[Password Confirm do not match]
+                </span>
+              </div>
+            </div>
+
+            <!-- Submit button -->
+            <div class="w-100 d-flex justify-content-center">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block mb-4"
+                (click)="doSignupAccount()"
+              >
+                <!-- disabled="!accountCreateForm.valid" -->
+                Sign up
+              </button>
+            </div>
+
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>or sign up with:</p>
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-google"></i>
+              </button>
+
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+
+              <button type="button" class="btn btn-link btn-floating mx-1">
+                <i class="fab fa-github"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section: Design Block -->

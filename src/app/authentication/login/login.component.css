@@ -1,0 +1,13 @@
+.wrapper {
+  background: linear-gradient(135deg, rgba(231, 41, 41, 1), white);
+}
+
+.wrong-account {
+  padding: 0.5rem;
+  border: 1px solid red;
+  background-color: rgb(229, 145, 145);
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}

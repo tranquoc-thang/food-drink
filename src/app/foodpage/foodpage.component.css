@@ -2,7 +2,7 @@
   display: flex;
 }
 
-.container {
+.containers {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,7 +10,7 @@
   margin: 3rem;
 }
 
-.container > * {
+.containers * {
   min-width: 25rem;
   max-width: 40rem;
 }

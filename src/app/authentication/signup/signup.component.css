@@ -1,0 +1,9 @@
+.validation-message {
+  font-size: 0.8rem;
+  color: red;
+}
+
+.error {
+  border-color: red;
+  box-shadow: none;
+}
