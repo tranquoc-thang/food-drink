@@ -39,3 +39,24 @@ nav ul li a {
   padding: 1em;
   height: 100%;
 }
+
+.modal {
+  display: block;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.4);
+  user-select: none;
+}
+
+.modal-dialog {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+}
+
+.modal-body {
+  height: 100vh;
+}
+
+.text-danger {
+  color: rgb(223, 17, 17) !important;
+}

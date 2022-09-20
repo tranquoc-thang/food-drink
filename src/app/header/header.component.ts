@@ -9,6 +9,7 @@ import { AuthService } from '../services/auth/auth.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  public isLogging: boolean = false;
   public url: any;
   public isLogged$: Observable<boolean> = new Observable<boolean>();
   constructor(private router: Router, private authService: AuthService) {
@@ -24,6 +25,10 @@ export class HeaderComponent implements OnInit {
   }
 
   doLogout() {
-    this.authService.doLogout();
+    this.isLogging = true;
+    setTimeout(() => {
+      this.authService.doLogout();
+      this.isLogging = false;
+    }, 1000);
   }
 }

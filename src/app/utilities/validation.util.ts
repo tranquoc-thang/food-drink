@@ -12,7 +12,7 @@ export class ValidationUtil {
       const otherControl = control.root.get(otherControlName);
       return control.value === otherControl?.value
         ? null
-        : { checkMatchOther: false };
+        : { checkMatchOther: true };
     };
   }
 }

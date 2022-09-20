@@ -14,6 +14,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  isLogging: boolean = false;
   accountInfo = {
     email: '',
     password: '',
@@ -24,10 +25,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   doLogin() {
-    this.isAccountExist = this.authService.doLogin(
-      this.accountInfo.email,
-      this.accountInfo.password
-    );
-    console.log(this.isAccountExist);
+    this.isLogging = true;
+    setTimeout(() => {
+      this.isAccountExist = this.authService.doLogin(
+        this.accountInfo.email,
+        this.accountInfo.password
+      );
+      this.isLogging = false;
+    }, 1000);
   }
 }

@@ -33,11 +33,10 @@ export class AuthService {
 
   public doLogout() {
     this.loggedIn.next(false);
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   public isAuthenticated(): Observable<boolean> {
-    console.log('auth service isAuthenticated');
     return this.loggedIn.asObservable();
   }
 }

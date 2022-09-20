@@ -19,6 +19,7 @@ import { ValidationUtil } from 'src/app/utilities/validation.util';
 })
 export class SignupComponent implements OnInit {
   accountCreateForm!: FormGroup;
+  isLogging: boolean = false;
 
   constructor(
     public formBulder: FormBuilder,
@@ -83,22 +84,26 @@ export class SignupComponent implements OnInit {
   }
 
   doSignupAccount() {
-    if (this.accountCreateForm.invalid) {
-      this.accountCreateForm.get('txtFirstName')!.markAsTouched();
-      this.accountCreateForm.get('txtLastName')!.markAsTouched();
-      this.accountCreateForm.get('txtEmail')!.markAsTouched();
-      this.accountCreateForm.get('txtPassword')!.markAsTouched();
-      this.accountCreateForm.get('txtPasswordConfirm')!.markAsTouched();
-      return;
-    }
-    this.signupService.doSignupAccount(
-      this.accountCreateForm.controls['txtEmail'].value,
-      this.accountCreateForm.controls['txtPassword'].value
-    );
-    this.authService.doLogin(
-      this.accountCreateForm.controls['txtEmail'].value,
-      this.accountCreateForm.controls['txtPassword'].value
-    );
-    this.accountCreateForm.reset();
+    this.isLogging = true;
+    setTimeout(() => {
+      if (this.accountCreateForm.invalid) {
+        this.accountCreateForm.get('txtFirstName')!.markAsTouched();
+        this.accountCreateForm.get('txtLastName')!.markAsTouched();
+        this.accountCreateForm.get('txtEmail')!.markAsTouched();
+        this.accountCreateForm.get('txtPassword')!.markAsTouched();
+        this.accountCreateForm.get('txtPasswordConfirm')!.markAsTouched();
+        return;
+      }
+      this.signupService.doSignupAccount(
+        this.accountCreateForm.controls['txtEmail'].value,
+        this.accountCreateForm.controls['txtPassword'].value
+      );
+      this.authService.doLogin(
+        this.accountCreateForm.controls['txtEmail'].value,
+        this.accountCreateForm.controls['txtPassword'].value
+      );
+      this.accountCreateForm.reset();
+      this.isLogging = false;
+    }, 1000);
   }
 }
