@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgToastStackService } from 'ng-toast-stack';
 import { CartService } from '../services/cart.service';
 import { FoodService } from '../services/food/food.service';
 import { Cart } from '../shared/models/cart';
@@ -13,7 +14,8 @@ export class CartPageComponent implements OnInit {
   cart!: Cart;
   constructor(
     private cartService: CartService,
-    private foodService: FoodService
+    private foodService: FoodService,
+    private toast: NgToastStackService
   ) {
     this.setCart();
   }
@@ -33,5 +35,15 @@ export class CartPageComponent implements OnInit {
     const quantity = parseInt(quantityInString);
     this.cartService.changeQuantity(cartItem.food.id, quantity);
     this.setCart();
+  }
+
+  checkout() {
+    this.toast.push({
+      title: 'Checkout',
+      msg: 'Checkout Successfully',
+      type: 'success',
+      autoCloseTimer: 3000,
+    });
+    this.cartService.clearCart();
   }
 }

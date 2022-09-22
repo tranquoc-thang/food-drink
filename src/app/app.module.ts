@@ -17,6 +17,9 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { SignupComponent } from './authentication/signup/signup.component';
 
+import { NgToastStackModule } from 'ng-toast-stack';
+import { SliderComponent } from './slider/slider.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,7 @@ import { SignupComponent } from './authentication/signup/signup.component';
     FooterComponent,
     LoginComponent,
     SignupComponent,
+    SliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,7 @@ import { SignupComponent } from './authentication/signup/signup.component';
     FormsModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgToastStackModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

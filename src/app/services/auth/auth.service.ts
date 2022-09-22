@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Account } from 'src/app/shared/models/account';
 
 @Injectable({
@@ -12,10 +12,22 @@ export class AuthService {
     false
   );
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    if (!localStorage.getItem('listAccount')) {
+      localStorage.setItem(
+        `listAccount`,
+        JSON.stringify([
+          {
+            email: 'admin@gmail.com',
+            password: '123456',
+          },
+        ])
+      );
+    }
+  }
 
   public doLogin(email: string, password: string) {
-    if (localStorage.getItem('listAccount')) {
+    if (localStorage.getItem('listAccount') !== null) {
       this.listAccount = JSON.parse(localStorage.getItem('listAccount')!);
     }
 

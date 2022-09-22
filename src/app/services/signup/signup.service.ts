@@ -10,6 +10,7 @@ export class SignupService {
 
   constructor(private router: Router) {
     if (localStorage.getItem('listAccount') === null) {
+      console.log('create account');
       localStorage.setItem(
         `listAccount`,
         JSON.stringify([

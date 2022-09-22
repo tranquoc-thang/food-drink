@@ -45,7 +45,7 @@ ul li div:not(:first-child) {
 }
 
 ul li select {
-  width: 4rem;
+  /* width: 4rem; */
   border: none;
   outline: none;
   border-bottom: 1px solid lightcoral;
@@ -103,7 +103,7 @@ ul .remove-button:hover {
   color: gray;
 }
 
-.checkout a {
+.checkout button {
   padding: 1rem;
   color: white;
   background-color: #e72929;
@@ -111,11 +111,12 @@ ul .remove-button:hover {
   width: 99%;
   border-radius: 1rem;
   text-align: center;
-  opacity: 0.7;
+  opacity: 1;
   justify-content: center;
+  border: none;
 }
 
-.checkout a:hover {
-  opacity: 1;
+.checkout button:hover {
+  opacity: 0.8;
   cursor: pointer;
 }
