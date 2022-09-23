@@ -9,3 +9,7 @@ $ npm run app:start:dev
 
 # build for production and launch server
 $ npm run app:start:prod
+
+## Account
+email: admin@gmail.com
+password: 123456
